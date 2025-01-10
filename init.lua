@@ -258,13 +258,13 @@ require('lazy').setup({
     },
   },
 
-  { -- install vim fugitive git wrapper
-    'tpope/vim-fugitive',
-    cmd = 'Git',
-    keys = {
-      { '<leader>gg', ':Git<CR>', desc = 'Open Git status' },
-    },
-  },
+  --{ -- install vim fugitive git wrapper
+  --  'tpope/vim-fugitive',
+  --  cmd = 'Git',
+  --  keys = {
+  --    { '<leader>gg', ':Git<CR>', desc = 'Open Git status' },
+  --  },
+  --},
 
   -- install lazygit
   {
@@ -284,7 +284,7 @@ require('lazy').setup({
     -- setting the keybinding for LazyGit with 'keys' is recommended in
     -- order to load the plugin when the command is run for the first time
     keys = {
-      { '<leader>lg', '<cmd>LazyGit<cr>', desc = 'LazyGit' },
+      { '<leader>gg', '<cmd>LazyGit<cr>', desc = 'LazyGit' },
     },
   },
 
