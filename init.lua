@@ -166,6 +166,9 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
+-- save with ctrl s
+vim.keymap.set({ 'n', 'i', 'v', 's' }, '<C-s>', '<cmd>w<cr><esc>', { desc = 'Save file' })
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
@@ -252,6 +255,14 @@ require('lazy').setup({
         topdelete = { text = '‾' },
         changedelete = { text = '~' },
       },
+    },
+  },
+
+  { -- install vim fugitive git wrapper
+    'tpope/vim-fugitive',
+    cmd = 'Git',
+    keys = {
+      { '<leader>gg', ':Git<CR>', desc = 'Open Git status' },
     },
   },
 
@@ -624,6 +635,8 @@ require('lazy').setup({
         -- clangd = {},
         -- gopls = {},
         -- pyright = {},
+        -- install rust_analyzer. Note that just having this declarative line here will automatically install rust-analyzer
+        -- and so you don't need to install it eg via rustup or homebrew.
         rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -699,7 +712,7 @@ require('lazy').setup({
       },
     },
     opts = {
-      notify_on_error = false,
+      noify_on_error = false,
       format_on_save = function(bufnr)
         -- Disable "format_on_save lsp_fallback" for languages that don't
         -- have a well standardized coding style. You can add additional
@@ -947,7 +960,7 @@ require('lazy').setup({
   --    This is the easiest way to modularize your config.
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
