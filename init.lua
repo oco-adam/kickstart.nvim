@@ -893,9 +893,9 @@ require('lazy').setup({
 
       require('mini.files').setup()
       -- open mini.files on leader e
-      vim.keymap.set('n', '<leader>e.', function()
+      vim.keymap.set('n', '<leader>e', function()
         MiniFiles.open()
-      end, { desc = '(File) [E]xplorer' })
+      end, { desc = '(file) [E]xplorer' })
 
       -- Add/delete/replace surroundings (brackets, quotes, etc.)
       --
